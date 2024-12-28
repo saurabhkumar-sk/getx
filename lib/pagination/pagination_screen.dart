@@ -23,29 +23,34 @@ class PaginationScreen extends StatelessWidget {
           return const Center(child: Text("No posts available"));
         }
 
-        return ListView.builder(
-          controller: controller.scrollController,
-          itemCount: controller.paginationModel.length + 1,
-          itemBuilder: (context, index) {
-            if (index == controller.paginationModel.length) {
-              return controller.isLoading.value
-                  ? const Padding(
-                      padding: EdgeInsets.all(5),
-                      child: Center(child: CircularProgressIndicator()),
-                    )
-                  : const SizedBox.shrink();
-            }
+        return SizedBox(
+          height: 100,
+          // width: 500,
+          child: PageView.builder(
+            // scrollDirection: Axis.horizontal,
+            controller: controller.scrollController,
+            itemCount: controller.paginationModel.length + 1,
+            itemBuilder: (context, index) {
+              if (index == controller.paginationModel.length) {
+                return controller.isLoading.value
+                    ? const Padding(
+                        padding: EdgeInsets.all(5),
+                        child: Center(child: CircularProgressIndicator()),
+                      )
+                    : const SizedBox.shrink();
+              }
 
-            final post = controller.paginationModel[index];
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ListTile(
-                tileColor: Colors.white,
-                title: Text(post.title['rendered'] ?? 'No title'),
-                subtitle: Text(post.date ?? 'No date'),
-              ),
-            );
-          },
+              final post = controller.paginationModel[index];
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ListTile(
+                  tileColor: Colors.white,
+                  title: Text(post.title['rendered'] ?? 'No title'),
+                  subtitle: Text(post.date ?? 'No date'),
+                ),
+              );
+            },
+          ),
         );
       }),
     );

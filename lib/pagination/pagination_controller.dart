@@ -14,13 +14,14 @@ class PaginationController extends GetxController {
     super.onInit();
   }
 
-  ScrollController scrollController = ScrollController();
+  // ScrollController scrollController = ScrollController();
+  PageController scrollController = PageController();
 
   RxList<PaginationModel> paginationModel = <PaginationModel>[].obs;
 
   RxBool isLoading = false.obs;
 
-  RxInt perPage = 10.obs;
+  RxInt perPage = 2.obs;
 
   RxInt currentPage = 1.obs;
 

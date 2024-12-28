@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_prac/all_pages.dart';
 import 'package:getx_prac/home.dart';
+import 'package:getx_prac/match_cards.dart/match_card.dart';
 import 'package:getx_prac/pagination/pagination_screen.dart';
 
 void main() {
@@ -13,12 +15,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PaginationScreen(),
+      home: const AllPages(),
     );
   }
 }
