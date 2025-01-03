@@ -3,6 +3,7 @@ import 'package:getx_prac/chart.dart';
 import 'package:getx_prac/chart1.dart';
 import 'package:getx_prac/chart2.dart';
 import 'package:getx_prac/home.dart';
+import 'package:getx_prac/toggleBtn.dart';
 
 class BottomNavBarExample extends StatefulWidget {
   @override
@@ -19,7 +20,8 @@ class _BottomNavBarExampleState extends State<BottomNavBarExample> {
   }
 
   final List<Widget> _screens = [
-    HomeScreen(),
+    // HomeScreen(),
+    ToggleBtn(),
     LineChartSampleTwoLines(),
     BarChartSample2(),
     MonthlyIncomeChart(),
